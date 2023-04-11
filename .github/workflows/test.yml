@@ -16,7 +16,7 @@ jobs:
       - name: Login to GitHub Container Registry
         run: echo "$GHCR_PASSWORD" | docker login --username "$GHCR_LOGIN" --password-stdin "$GHCR_URL"
       - name: Start Docker Compose services
-        run: docker compose -f compose.yml up -d
+        run: docker compose -f compose.yaml up -d
       - name: Run tests
         run: |
           pip install -q rpaframework
