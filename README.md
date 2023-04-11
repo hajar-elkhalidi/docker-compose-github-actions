@@ -42,4 +42,4 @@ When running locally:
 
 And in GitHub Actions:
 
-* Please update the variables used to login to ghcr.io.
+* Please update the variables used to login to [ghcr.io](ghcr.io).
