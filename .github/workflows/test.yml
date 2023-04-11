@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    env:
+      GHCR_URL: ghcr.io
+      GHCR_LOGIN: ${{ secrets.GHCR_LOGIN }}
+      GHCR_PASSWORD: ${{ secrets.GHCR_PASSWORD }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        run: echo "$GHCR_PASSWORD" | docker login --username "$GHCR_LOGIN" --password-stdin "$GHCR_URL"
+      - name: Start Docker Compose services
+        run: docker compose -f compose.yml up -d
+      - name: Run tests
+        run: |
+          pip install -q rpaframework
+          robot -d results/ test.robot
+      - name: Get log
+        uses: actions/upload-artifact@v3
+        with:
+          name: log file
+          path: results/log.html
