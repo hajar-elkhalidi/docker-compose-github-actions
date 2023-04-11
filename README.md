@@ -1,6 +1,6 @@
 # Docker Compose Example for GitHub Actions
 
-This repository provides an example of how to use Docker Compose to run and test a Spring Boot API in GitHub Actions. The API provides basic CRUD operations for managing client data, and the tests are written in robotframework.
+This repository provides an example of how to use Docker Compose to run and test a Spring Boot API in GitHub Actions. The API provides basic CRUD operations for managing clients data, and the tests are written in robotframework.
 
 ## Continuous Integration
 
