@@ -20,7 +20,7 @@ jobs:
       - name: Run tests
         run: |
           pip install -q rpaframework
-          robot -d results/ test.robot
+          robot -d results/ tests.robot
       - name: Get log
         uses: actions/upload-artifact@v3
         with:
