@@ -1,0 +1,5 @@
+FROM mariadb:10.5
+
+COPY sample.sql /docker-entrypoint-initdb.d/
+
+CMD ["--init-file", "/docker-entrypoint-initdb.d/sample.sql"]
