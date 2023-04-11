@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mariadb:
+    image: ghcr.io/hajar-elkhalidi/db:01
+    container_name: mydb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: sample
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    restart: always
+
+  app:
+    image: ghcr.io/hajar-elkhalidi/app:01
+    container_name: myapp
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mydb:3306/sample?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: pass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    restart: always
