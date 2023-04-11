@@ -6,7 +6,7 @@ This is a RESTful API built with Spring Boot that allows you to list, add, updat
 
 ## Getting started
 
-To get started, you'll need to have Java 8 or later installed on your machine. You'll also need to have Maven installed to build the application.
+To get started, you'll need to have Java 17 or later installed on your machine. You'll also need to have Maven installed to build the application.
 
 To build the application, run the following command from the root directory of the project:
 
